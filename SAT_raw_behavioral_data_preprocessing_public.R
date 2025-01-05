@@ -33,6 +33,11 @@ for (i in (1:nYA)){
 #add subject number to long data set
 dataYA_full <- cbind(subject,dataYA_full)
 
+#transform logarithm of RT to true RT and ms to s
+dataYA_full$log_rt_1 <- exp(dataYA_full$log_rt_1)/1000
+dataYA_full$log_rt_sum <- exp(dataYA_full$log_rt_sum)/1000
+
+
 #calculate response time 2 (sum of response time for action 2 and 3)
 for (i in 1:nYA){
   for (j in 1:t){
@@ -83,6 +88,10 @@ for (i in (1:nOA)){
 
 #add subject number to long data set
 dataOA_full <- cbind(subject,dataOA_full)
+
+#transform logarithm of RT to true RT and ms to s
+dataOA_full$log_rt_1 <- exp(dataOA_full$log_rt_1)/1000
+dataOA_full$log_rt_sum <- exp(dataOA_full$log_rt_sum)/1000
 
 #calculate response time 2 (sum of response time for action 2 and 3)
 for (i in 1:nOA){
